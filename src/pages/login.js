@@ -1,15 +1,22 @@
 import React from 'react';
 
 const Login = () => {
+
+  const executeLogin = (e) => {
+    e.preventDefault();
+
+    console.log("executeLogin");
+  }
+
   return(
     <div>
-      <form>
+      <form onSubmit={executeLogin}>
         <img src="https://www.pinclipart.com/picdir/big/117-1177303_1-dbs-group-holdings-ltd-dbs-bank-logo.png" width="250" height="auto"/>
           <h1 className="h3 mb-3 fw-normal">Please login</h1>
 
         <div className="form-floating">
-          <input type="email" className="form-control" id="floatingInput" placeholder="name@example.com"/>
-            <label for="floatingInput">Email address</label>
+          <input type="text" className="form-control" id="floatingInput" placeholder="user name"/>
+            <label for="floatingInput">User name</label>
         </div>
 
         <div className="form-floating">
