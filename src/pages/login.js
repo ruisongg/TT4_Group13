@@ -14,8 +14,8 @@ const Login = () => {
       method: 'POST',
       headers: { 'content-type': 'application/json',
                  'x-api-key': 'QNd2HPwfhv2bK2pNt4pfl79YaNoq7p0X7XeSPkKY' },
-      body: `{ "userName": "${username}","userPass": "${password}" }`
-      // body: `{ "userName": "Group13","userPass": "XLzd8Kx20pFEU6v" }`
+      // body: `{ "userName": "${username}","userPass": "${password}" }`
+      body: `{ "userName": "Group13","userPass": "XLzd8Kx20pFEU6v" }`
     }).then(respond => respond.json())
       .then(data => {
                       localStorage.setItem("user", JSON.stringify(data));

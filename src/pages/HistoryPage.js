@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 function HistoryPage() {
 
     const [user, setUser] = useState({});
-    const [hist, setHist] = useState([])
+    const [hlist, setHist] = useState([])
 
     useEffect(() => {
         setUser(JSON.parse(localStorage.getItem("user")))
@@ -20,8 +20,8 @@ function HistoryPage() {
                 }).then(respond => respond.json())
                 .then(data => {
                               //  console.log(JSON.stringify(data))
-                                setHist([data]);
-                                console.log(hist)
+                                setHist(data);
+                                console.log(hlist)
                                 });
         }
     }, [user])
@@ -29,7 +29,6 @@ function HistoryPage() {
     return (
         <div>
           <h1>{user.firstName}'s History</h1>
-        
           <table class="table table-striped table-bordered table-condensed">
             <thead>
               <tr>
@@ -43,11 +42,51 @@ function HistoryPage() {
 
             <tbody>
               <tr ng-repeat="row in transactionList | filter: transType">
-                <td ng-bind="row.date"> date </td>
-                <td ng-bind="row.payee"> payee </td>
-                <td ng-bind="row.description"> desc </td>
-                <td ng-bind="row.type"> egift </td>
-                <td ng-bind="row.amount | currency"> amt </td>
+                <td ng-bind="row.date">
+                {
+                    Object.keys(hlist).map((item, i) => (
+                        <tr className="transactionList" key={i}>
+                            <td className="input-label">{ hlist[item].datetime }</td>
+                        </tr>
+                    ))
+                }
+                </td>
+                <td ng-bind="row.payee">
+                {
+                    Object.keys(hlist).map((item, i) => (
+                        <tr className="transactionList" key={i}>
+                            <td className="input-label">{ hlist[item].custID }</td>
+                        </tr>
+                    ))
+                }
+                </td>
+                <td ng-bind="row.description">
+                {
+                    Object.keys(hlist).map((item, i) => (
+                        <tr className="transactionList" key={i}>
+                            <td className="input-label">{ hlist[item].message }</td>
+                        </tr>
+                    ))
+                }
+                </td>
+                <td ng-bind="row.type">
+                {
+                    Object.keys(hlist).map((item, i) => (
+                        <tr className="transactionList" key={i}>
+                            <td className="input-label">{ hlist[item].eGift == true ? "eGift" : "" }</td>
+                        </tr>
+                    ))
+                }
+                </td>
+                <td ng-bind="row.amount | currency">
+                {
+                    Object.keys(hlist).map((item, i) => (
+                        <tr className="transactionList" key={i}>
+                            <td className="input-label">{ hlist[item].amount }</td>
+                        </tr>
+                    ))
+                }
+                </td>
               </tr>
             </tbody>
           </table>
