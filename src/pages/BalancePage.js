@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 function BalancePage() {
     const [user, setUser] = useState({});
@@ -23,7 +23,7 @@ function BalancePage() {
                                 });
         }
     }, [user])
-    
+
     useEffect(() => {
         console.log(accounts);
     }, [accounts])
