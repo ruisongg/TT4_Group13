@@ -1,9 +1,26 @@
-nav.navbar.navbar-default
-  .container-fluid
-    .navbar-header
-    #myTopnav.topnav
-      a(href='/transactions') My Transactions
-      a(href='/accountdetails') Account Details
-      a(href='/logout') Logout
-      a.icon(href='javascript:void(0);' onclick='myFunction()')
-        i.fa.fa-bars
+//- nav.navbar.navbar-default
+//-   .container-fluid
+//-     .navbar-header
+//-     #myTopnav.topnav
+//-       a(href='/index') Home
+//-       a(href='/transactions') My Transactions
+//-       a(href='/accountdetails') Account Details
+//-       a(href='/logout') Logout
+//-       a.icon(href='javascript:void(0);' onclick='myFunction()')
+//-         i.fa.fa-bars
+nav.navbar.navbar-expand-lg.navbar-light.bg-light
+  img#logo(src='https://threelearning.com/wp-content/uploads/2019/04/dbs-bank-logo.png' style='max-width: 90px;')  
+  #navbarSupportedContent.collapse.navbar-collapse
+    ul.navbar-nav.mr-auto
+      li.nav-item
+        a.nav-link(href='/index')
+          | Home 
+      li.nav-item
+        a.nav-link(href='/transactions')
+          | My Transactions 
+      li.nav-item
+        a.nav-link(href='/accountdetails')
+          | Account Details 
+      li.nav-item
+        a.nav-link(href='/logout')
+          | Logout 

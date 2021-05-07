@@ -23,7 +23,7 @@
     "jose": "^0.3.2",
     "jsonwebtoken": "^8.2.1",
     "ldapjs": "^2.2.4",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.21",
     "morgan": "^1.9.1",
     "mysql": "^2.18.1",
     "node-jose": "^2.0.0",

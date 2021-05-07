@@ -15,23 +15,21 @@ html(lang='en')
       div
         .container
           .row
-            .col-lg-12.col-md-12.align-items-center.full-screen-height(style='background-color: rgb(255, 255, 255); background-color: rgba(156, 207, 246);')
+            .col-lg-12.col-md-12.align-items-center.full-screen-height(style='background-color: rgb(255, 255, 255); background-color: rgba(255, 255, 255);')
               .hero-content-div
                 .hero-content(style='text-align: center;')
-                  hr
                   img(src='https://threelearning.com/wp-content/uploads/2019/04/dbs-bank-logo.png' alt='Italian Trulli')
-                  hr
                   h6(style='color: rgb(0, 0, 0);') Sign in with your account
-                  hr
                   form(method='POST' action='/auth')
                     .form-group
                       input#userId.form-control(type='text' placeholder='User ID' name='uid' required='required')
                       br
-                      input#password.form-control(type='password' placeholder='Password' name='password' required='required')
                       br
-                      hr
+                      input#password.form-control(type='password' placeholder='Password' name='password' required='required')
+
                       h5.error(style='color:red; text-align:center;') #{message}
-                      hr
+                      br
+                      br
                       button.btn-sm.btn-default(type='submit') Login
     script(src='../../vendor/jquery/jquery-3.3.1.min.js')
     script(src='../../vendor/jquery.scrollTo.min.js')
