@@ -18,7 +18,7 @@ const Login = () => {
       // body: `{ "userName": "Group13","userPass": "XLzd8Kx20pFEU6v" }`
     }).then(respond => respond.json())
       .then(data => {
-                      localStorage.setItem("user", data);
+                      localStorage.setItem("user", JSON.stringify(data));
                       history.push("/balance");
                     });
   }
