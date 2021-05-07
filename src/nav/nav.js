@@ -10,6 +10,9 @@ const Nav = () => {
           <div>
             <ul className="navbar-nav me-auto mb-2 mb-md-0">
               <li className="nav-item">
+                <Link to="/notifications" className="navbar-brand">Notifications</Link>
+              </li>
+              <li className="nav-item">
                 <Link to="/balance" className="navbar-brand">Balance</Link>
               </li>
               <li className="nav-item">
