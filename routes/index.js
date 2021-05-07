@@ -26,6 +26,11 @@ const colors = require("colors");
 var https = require('follow-redirects').https;
 const fs = require("fs");
 
+/* GET logout page. */
+router.get("/logout", function (req, res, next) {
+  res.render('login');
+});
+
 /* GET login page. */
 router.get("/", function (req, res, next) {
   res.render('login');
@@ -59,6 +64,9 @@ router.post('/auth', function (req, res) {
       console.log(body);
 
       console.log("custID: " + body.custID);
+
+      req.session.accountKey =  body.accountKey;
+      req.session.custID =  body.accountKey;
 
       res.render('index', {
         name: body.firstName + " " + body.lastName,
@@ -196,20 +204,12 @@ router.post("/addTransaction", function (req, res) {
       console.log("body: ");
       console.log(body);
 
-      if (body.E_RETURN_FLAG._text == "F") {
-        var datetime = new Date();
-        res.render('form', {
-          message: errormessage
-        });
-      } else if (result.E_RETURN_FLAG._text == "S") {
-        res.render('submission');
-      }
-
-      res.render('accountDetails', {
-        body: body
-      })
+      res.redirect('transaction', {
+        message: "Transfer Success!"
+      });
+      
     } catch (err) {
-      res.render('transaction', {
+      res.redirect('transaction', {
         message: "Transfer failed!"
       });
     }
