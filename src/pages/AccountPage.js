@@ -1,12 +1,19 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 
 function AccountPage() {
+
+    const [user, setUser] = useState({});
+
+    useEffect(() => {
+        setUser(JSON.parse(localStorage.getItem("user")))
+    }, [])
+
     return (
         <div>
             <h1>My Account</h1>
             <table>
                 <tr>
-                <th scope="row">Customer ID:</th>
+                <th scope="row">Customer ID: {user.custID}</th>
                 </tr>
                 <tr>
                 <th scope="row">Account Key:</th>
