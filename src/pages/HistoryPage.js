@@ -82,7 +82,7 @@ function HistoryPage() {
                 {
                     Object.keys(hlist).map((item, i) => (
                         <tr className="transactionList" key={i}>
-                            <td className="input-label">{ hlist[item].amount }</td>
+                            <td className="input-label">{ "$" + hlist[item].amount }</td>
                         </tr>
                     ))
                 }
