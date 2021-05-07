@@ -24,7 +24,7 @@ function AccountPage() {
                 <th scope="row">Last Name: {user.lastName}</th>
                 </tr>
                 <tr>
-                <th scope="row">NRIC: {user.NRIC}</th>
+                <th scope="row">NRIC: {user.nric}</th>
                 </tr>
                 <tr>
                 <th scope="row">Age: {user.age}</th>
