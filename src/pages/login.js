@@ -16,11 +16,11 @@ const Login = () => {
                  'x-api-key': 'QNd2HPwfhv2bK2pNt4pfl79YaNoq7p0X7XeSPkKY' },
       body: `{ "userName": "${username}","userPass": "${password}" }`
       // body: `{ "userName": "Group13","userPass": "XLzd8Kx20pFEU6v" }`
-    }).then(respond => respond.json())
+    }).then(response => response.json())
       .then(data => {
                       localStorage.setItem("user", JSON.stringify(data));
                       history.push("/balance");
-                    });
+                    })
   }
 
   return(

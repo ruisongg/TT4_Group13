@@ -13,6 +13,7 @@ function accountList(){
 function TransferPage() {
 
     const [user, setUser] = useState({});
+    const [accounts, setAccounts] = useState([]);
 
     useEffect(() => {
         setUser(JSON.parse(localStorage.getItem("user")))
@@ -29,9 +30,14 @@ function TransferPage() {
                 }).then(respond => respond.json())
                 .then(data => {
                                 console.log(JSON.stringify(data))
+                                setAccounts(data);
                                 });
         }
     }, [user])
+    
+    useEffect(() => {
+        console.log(accounts);
+    }, [accounts])
 
     return (
         <div>
@@ -46,6 +52,20 @@ function TransferPage() {
             </select>
             </form>
            
+
+
+            <p>
+            { 
+                Object.keys(accounts).map((item, i) => (
+                    <li className="travelcompany-input" key={i}>
+                        <span className="input-label">{ accounts[item].accountName }</span>
+                    </li>
+                ))
+            }  
+            </p>
+
+
+
             <form>              
             <b>Select Transfer Account: </b>
             <select id = "othersList" onChange= "accountList()" width="1000">

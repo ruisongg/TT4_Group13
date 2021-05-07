@@ -1,4 +1,5 @@
-import React,  { useState, useEffect }  from 'react'
+
+import React, {useState, useEffect} from 'react'
 
 function AccountPage() {
     const [user, setUser] = useState({});
