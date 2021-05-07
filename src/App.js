@@ -6,6 +6,7 @@ import {BrowserRouter, Route} from 'react-router-dom';
 import BalancePage from './pages/BalancePage';
 import TransferPage from './pages/TransferPage';
 import HistoryPage from './pages/HistoryPage';
+import AccountPage from './pages/AccountPage';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/balance" exact component={BalancePage}/>
           <Route path="/transfer" exact component={TransferPage}/>
           <Route path="/history" exact component={HistoryPage}/>
+          <Route path="/account" exact component={AccountPage}/>
         </main>
       </BrowserRouter>
     </div>
