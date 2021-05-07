@@ -1,0 +1,67 @@
+doctype html
+html(lang='en')
+    head
+        meta(charset='utf-8')
+        title Tech Trek 4
+        meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+        meta(http-equiv='Cache-Control' content='no-cache, no-store, must-revalidate')
+        meta(http-equiv='Pragma' content='no-cache')
+        meta(http-equiv='Expires' content='0')
+        link(href='https://fonts.googleapis.com/css?family=Merriweather:300,400%7CPoppins:400,500,600' rel='stylesheet')
+        link(rel='stylesheet' type='text/css' href='../../vendor/bootstrap/css/bootstrap.min.css')
+        link(rel='stylesheet' type='text/css' href='../../css/main.css')
+        script(src='/components/jquery/jquery.min.js')
+        script(src='/components/jquery/purl.js')
+        script(src='/components/tether/js/tether.min.js')
+    include nav 
+    body.myinfo
+        section#form.lone-about-us.section-padding
+            .container
+                .single-heading
+                    h2 Customer Information
+                .row.justify-content-around
+                    .col-md-12.col-lg-7.form-box.mb-4
+                        .form-group
+                            label Customer Name
+                            .form-group
+                                Input.form-control(type='text' name='name' value=name placeholder='' readOnly)
+                        .form-group
+                            label Customer NRIC
+                            .form-group
+                                Input.form-control(type='text' name='nric' value=nric placeholder='' readOnly)
+                        .form-group
+                            label Customer Address
+                            .form-group
+                                Input.form-control(type='text' name='address' value=address placeholder='' readOnly)
+                        .form-group
+                            label Customer Mobile Number
+                            .form-group
+                                Input.form-control(type='text' name='phoneNumber' value=phoneNumber placeholder='' readOnly)
+                        .form-group
+                            label Customer Email
+                            .form-group
+                                Input.form-control(type='text' name='email' value=email placeholder='' readOnly)
+                        .form-group
+                            label Customer Gender
+                            .form-group
+                                Input.form-control(type='text' name='gender' value=gender placeholder='' readOnly)
+                        .form-group
+                            label Customer Age
+                            .form-group
+                                Input.form-control(type='text' name='age' value=age placeholder='' readOnly)
+                        Input.form-control(type='text' name='accountKey' value=accountKey placeholder='' readOnly style="display:none;")
+                        Input.form-control(type='text' name='custID' value=custID placeholder='' readOnly style="display:none;")
+
+        script(src='../../vendor/jquery/jquery-3.3.1.min.js')
+        script(src='../../vendor/jquery.scrollTo.min.js')
+        script(src='../../js/main.js')
+        // jQuery
+        script(src='components/jquery/jquery.min.js')
+        // Bootstrap Core JavaScript
+        script(src='components/bootstrap/js/bootstrap.min.js')
+        // Plugin JavaScript
+        script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js')
+        script(src='components/scrollreveal/scrollreveal.min.js')
+        script(src='components/magnific-popup/jquery.magnific-popup.min.js')
+        // Theme JavaScript
+        script(src='js/creative.js')

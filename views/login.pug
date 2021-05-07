@@ -1,0 +1,46 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    title TechTrek 4 Group 13
+    meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    link(href='https://fonts.googleapis.com/css?family=Merriweather:300,400%7CPoppins:400,500,600' rel='stylesheet')
+    link(rel='stylesheet' type='text/css' href='../../vendor/bootstrap/css/bootstrap.min.css')
+    link(rel='stylesheet' type='text/css' href='../../css/main.css')
+    script(src='/components/jquery/jquery.min.js')
+    script(src='/components/jquery/purl.js')
+    script(src='/components/tether/js/tether.min.js')
+  body.myinfo
+    section.hero-area
+      div
+        .container
+          .row
+            .col-lg-12.col-md-12.align-items-center.full-screen-height(style='background-color: rgb(255, 255, 255); background-color: rgba(156, 207, 246);')
+              .hero-content-div
+                .hero-content(style='text-align: center;')
+                  hr
+                  img(src='https://threelearning.com/wp-content/uploads/2019/04/dbs-bank-logo.png' alt='Italian Trulli')
+                  hr
+                  h6(style='color: rgb(0, 0, 0);') Sign in with your account
+                  hr
+                  form(method='POST' action='/auth')
+                    .form-group
+                      input#userId.form-control(type='text' placeholder='User ID' name='uid' required='required')
+                      br
+                      input#password.form-control(type='password' placeholder='Password' name='password' required='required')
+                      br
+                      br
+                      button.btn-sm.btn-default(type='submit') Login
+    script(src='../../vendor/jquery/jquery-3.3.1.min.js')
+    script(src='../../vendor/jquery.scrollTo.min.js')
+    script(src='../../js/main.js')
+    // jQuery
+    script(src='components/jquery/jquery.min.js')
+    // Bootstrap Core JavaScript
+    script(src='components/bootstrap/js/bootstrap.min.js')
+    // Plugin JavaScript
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js')
+    script(src='components/scrollreveal/scrollreveal.min.js')
+    script(src='components/magnific-popup/jquery.magnific-popup.min.js')
+    // Theme JavaScript
+    script(src='js/creative.js')
