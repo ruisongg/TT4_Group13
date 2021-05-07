@@ -16,19 +16,11 @@ const Login = () => {
                  'x-api-key': 'QNd2HPwfhv2bK2pNt4pfl79YaNoq7p0X7XeSPkKY' },
       body: `{ "userName": "${username}","userPass": "${password}" }`
       // body: `{ "userName": "Group13","userPass": "XLzd8Kx20pFEU6v" }`
-    }).then(response => {
-                          if (!response.ok)
-                            throw new Error(response.status);
-                          else
-                            response.json();
-                        })
+    }).then(response => response.json())
       .then(data => {
                       localStorage.setItem("user", JSON.stringify(data));
                       history.push("/balance");
                     })
-      .catch(status => {
-                            console.log(status)
-                        });
   }
 
   return(
