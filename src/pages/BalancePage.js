@@ -43,7 +43,7 @@ function BalancePage() {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="row in balanceList | filter: balanceType">
+                    <tr ng-repeat="row in balanceList | filter: balance">
                         <td ng-bind="row.name"></td>
                         <td ng-bind="row.number"></td>
                         <td ng-bind="row.balance"></td>
