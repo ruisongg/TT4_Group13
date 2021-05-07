@@ -2,7 +2,10 @@ import React from 'react'
 
 function BalancePage() {
     const [user, setUser] = useState({});
+<<<<<<< HEAD
     const [accounts, setAccounts] = useState([]);
+=======
+>>>>>>> 7906ae00918438d3df3f68352f8118aadd3211bc
 
     useEffect(() => {
         setUser(JSON.parse(localStorage.getItem("user")))
@@ -11,7 +14,11 @@ function BalancePage() {
     useEffect(() => {
         if (user.custID != null)
         {
+<<<<<<< HEAD
             fetch("https://ipllrj2mq8.execute-api.ap-southeast-1.amazonaws.com/techtrek/accounts",{
+=======
+            fetch("https://ipllrj2mq8.execute-api.ap-southeast-1.amazonaws.com/techtrek/transactions/view",{
+>>>>>>> 7906ae00918438d3df3f68352f8118aadd3211bc
                 method: 'POST',
                 headers: { 'content-type': 'application/json',
                             'x-api-key': 'QNd2HPwfhv2bK2pNt4pfl79YaNoq7p0X7XeSPkKY' },
@@ -19,6 +26,7 @@ function BalancePage() {
                 }).then(respond => respond.json())
                 .then(data => {
                                 console.log(JSON.stringify(data))
+<<<<<<< HEAD
                                 setAccounts(data);
                                 });
         }
@@ -27,6 +35,11 @@ function BalancePage() {
     useEffect(() => {
         console.log(accounts);
     }, [accounts])
+=======
+                                });
+        }
+    }, [user])
+>>>>>>> 7906ae00918438d3df3f68352f8118aadd3211bc
 
     return (
         <div>
@@ -43,7 +56,11 @@ function BalancePage() {
                     </tr>
                 </thead>
                 <tbody>
+<<<<<<< HEAD
                     <tr ng-repeat="row in balanceList | filter: balance">
+=======
+                    <tr ng-repeat="row in balanceList | filter: balanceType">
+>>>>>>> 7906ae00918438d3df3f68352f8118aadd3211bc
                         <td ng-bind="row.name"></td>
                         <td ng-bind="row.number"></td>
                         <td ng-bind="row.balance"></td>
@@ -51,7 +68,11 @@ function BalancePage() {
                 </tbody>
             </table>
 
+<<<<<<< HEAD
             <button className="w-100 btn btn-lg btn-primary" type="submit">Refresh Button</button>
+=======
+            <button className="w-100 btn btn-lg btn-primary" type="submit">Refresh</button>
+>>>>>>> 7906ae00918438d3df3f68352f8118aadd3211bc
         </div>
     )
 }
