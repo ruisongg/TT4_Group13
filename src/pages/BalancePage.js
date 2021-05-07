@@ -51,7 +51,7 @@ function BalancePage() {
                 </tbody>
             </table>
 
-            <button className="w-100 btn btn-lg btn-primary" type="submit">Refresh</button>
+            <button className="w-100 btn btn-lg btn-primary" type="submit">Refresh Button</button>
         </div>
     )
 }
