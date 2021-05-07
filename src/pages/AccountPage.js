@@ -1,33 +1,39 @@
-import React from 'react'
+import React,  { useState, useEffect }  from 'react'
 
 function AccountPage() {
+    const [user, setUser] = useState({});
+
+    useEffect(() => {
+        setUser(JSON.parse(localStorage.getItem("user")))
+    }, [])
+
     return (
         <div>
             <h1>My Account</h1>
             <table>
                 <tr>
-                <th scope="row">Customer ID:</th>
+                <th scope="row">Customer ID: {user.custID}</th>
                 </tr>
                 <tr>
-                <th scope="row">Account Key:</th>
+                <th scope="row">Account Key: {user.accountKey}</th>
                 </tr>
                 <tr>
-                <th scope="row">First Name:</th>
+                <th scope="row">First Name: {user.firstName}</th>
                 </tr>
                 <tr>
-                <th scope="row">Last Name:</th>
+                <th scope="row">Last Name: {user.lastName}</th>
                 </tr>
                 <tr>
-                <th scope="row">NRIC:</th>
+                <th scope="row">NRIC: {user.NRIC}</th>
                 </tr>
                 <tr>
-                <th scope="row">Age:</th>
+                <th scope="row">Age: {user.age}</th>
                 </tr>
                 <tr>
-                <th scope="row">Phone Number:</th>
+                <th scope="row">Phone Number: {user.phoneNumber}</th>
                 </tr>
                 <tr>
-                <th scope="row">E-mail:</th>
+                <th scope="row">E-mail: {user.email}</th>
                 </tr>
             </table>
         </div>

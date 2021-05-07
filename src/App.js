@@ -7,6 +7,7 @@ import BalancePage from './pages/BalancePage';
 import TransferPage from './pages/TransferPage';
 import HistoryPage from './pages/HistoryPage';
 import AccountPage from './pages/AccountPage';
+import NotifPage from './pages/NotifPage';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/transfer" exact component={TransferPage}/>
           <Route path="/history" exact component={HistoryPage}/>
           <Route path="/account" exact component={AccountPage}/>
+          <Route path="/notifications" exact component={NotifPage}/>
         </main>
       </BrowserRouter>
     </div>
