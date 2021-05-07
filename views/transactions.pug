@@ -1,0 +1,89 @@
+doctype html
+html(lang='en')
+    head
+        meta(charset='utf-8')
+        title Tech Trek 4
+        meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+        meta(http-equiv='Cache-Control' content='no-cache, no-store, must-revalidate')
+        meta(http-equiv='Pragma' content='no-cache')
+        meta(http-equiv='Expires' content='0')
+        link(href='https://fonts.googleapis.com/css?family=Merriweather:300,400%7CPoppins:400,500,600' rel='stylesheet')
+        link(rel='stylesheet' type='text/css' href='../../vendor/bootstrap/css/bootstrap.min.css')
+        link(rel='stylesheet' type='text/css' href='../../css/main.css')
+        script(src='/components/jquery/jquery.min.js')
+        script(src='/components/jquery/purl.js')
+        script(src='/components/tether/js/tether.min.js')
+    include nav 
+    body.techtrek
+        section#form.lone-about-us.section-padding
+            .container
+                .row.single-heading
+                    h2 Customer Transactions
+                    h5.error(style='color:red; text-align:center;') #{message}
+                .row
+                    form#formApplication.toggle_content(action='/addTransaction' method='POST')
+                    .col-md-12.col-lg-10.form-box.mb-4
+                            .form-group
+                                label Customer ID
+                                .form-group
+                                    Input.form-control(type='text' name='addcustID' value=addcustID placeholder='')
+                            .form-group
+                                label Account Key
+                                .form-group
+                                    Input.form-control(type='text' name='addaccountKey' value=addaccountKey placeholder='')
+                            .form-group
+                                label Payee ID
+                                .form-group
+                                    Input.form-control(type='text' name='addpayeeID' value=addpayeeID placeholder='')
+                            .form-group
+                                label Amount
+                                .form-group
+                                    Input.form-control(type='text' name='addAmount' value=addAmount placeholder='')
+                            .form-group
+                                label eGift
+                                .form-group
+                                    Input.form-control(type='text' name='addeGift' value=addeGift placeholder='')
+                            .form-group
+                                label Message
+                                .form-group
+                                    Input.form-control(type='text' name='addMessage' value=addMessage placeholder='')
+                            .col-md-12.text-center
+                                button#submitFormbtn.btn2
+                                    | Submit
+                .row
+                    .col-md-12.col-lg-10.form-box.mb-4
+                        Input.form-control(type='text' name='body' value=body placeholder='' readOnly style="display:none;")
+                        div
+                        table.table.table-hover
+                            thead
+                            tr: th Transactions
+                            td eGift
+                            td Date 
+                            td Customer ID
+                            td Amount 
+                            td Message
+                            td Payee ID
+                            td Catagory
+                            tbody
+                            each transaction in body
+                                tr
+                                td=transaction.eGift
+                                td=transaction.datetime
+                                td=transaction.custID
+                                td="$" + transaction.amount
+                                td=transaction.message
+                                td=transaction.payeeID
+                                td=transaction.expenseCat
+        script(src='../../vendor/jquery/jquery-3.3.1.min.js')
+        script(src='../../vendor/jquery.scrollTo.min.js')
+        script(src='../../js/main.js')
+        // jQuery
+        script(src='components/jquery/jquery.min.js')
+        // Bootstrap Core JavaScript
+        script(src='components/bootstrap/js/bootstrap.min.js')
+        // Plugin JavaScript
+        script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js')
+        script(src='components/scrollreveal/scrollreveal.min.js')
+        script(src='components/magnific-popup/jquery.magnific-popup.min.js')
+        // Theme JavaScript
+        script(src='js/creative.js')

@@ -77,21 +77,23 @@ router.post('/auth', function (req, res) {
         custID: body.custID
       })
     } catch (err) {
-
+      res.render('login', {
+        message: "Authentication failed!"
+      })
     }
   })
 });
 
 /* get Transaction page. */
-router.get('/transaction', function (req, res) {
+router.get('/transactions', function (req, res) {
   // Authenticate
-  var username = req.body.uid;
-  var password = req.body.password;
+  var accountKey = req.body.accountKey;
+  var custID = req.body.custID;
 
   var options = {
     'method': 'POST',
     'hostname': 'ipllrj2mq8.execute-api.ap-southeast-1.amazonaws.com',
-    'path': '/techtrek/login',
+    'path': '/techtrek/transactions/view',
     'headers': {
       'x-api-key': 'QNd2HPwfhv2bK2pNt4pfl79YaNoq7p0X7XeSPkKY',
       'Content-Type': 'text/plain'
@@ -100,8 +102,50 @@ router.get('/transaction', function (req, res) {
   };
 
   var outbound = JSON.stringify({
-    "userName": username,
-    "userPass": password
+    "accountKey": "pdhyqysd-tmgi-rki9-g4bi-ulbaoul6a9q",
+    "custID": 13
+  })
+
+  httpRequest(options, outbound).then(function (body) {
+    try {
+      console.log("body: ");
+      console.log(body);
+      res.render('transactions', {
+        body: body
+      });
+    } catch (err) {
+
+    }
+  })
+});
+
+/* Add a new Transaction. */
+router.post("/addTransaction", function (req, res) {
+  const addcustID = req.body.addcustID;
+  const addaccountKey = req.body.addaccountKey;
+  const addpayeeID = req.body.addpayeeID;
+  const addAmount = req.body.addAmount;
+  const addeGift = req.body.addeGift;
+  const addMessage = req.body.addMessage;
+
+  var options = {
+    'method': 'POST',
+    'hostname': 'ipllrj2mq8.execute-api.ap-southeast-1.amazonaws.com',
+    'path': '/techtrek/transactions/add',
+    'headers': {
+      'x-api-key': 'QNd2HPwfhv2bK2pNt4pfl79YaNoq7p0X7XeSPkKY',
+      'Content-Type': 'text/plain'
+    },
+    'maxRedirects': 20
+  };
+
+  var outbound = JSON.stringify({
+    "custID": addcustID,
+    "accountKey": addaccountKey,
+    "payeeID": addpayeeID,
+    "amount": addAmount,
+    "eGift": addeGift,
+    "message": addMessage
   })
 
   httpRequest(options, outbound).then(function (body) {
@@ -109,21 +153,58 @@ router.get('/transaction', function (req, res) {
       console.log("body: ");
       console.log(body);
 
-      console.log("accountKey: " + body.accountKey);
+      if (body.E_RETURN_FLAG._text == "F") {
+        var datetime = new Date();
+        res.render('form', {
+          message: errormessage
+        });
+      } else if (result.E_RETURN_FLAG._text == "S") {
+        res.render('submission');
+      }
 
-      res.render('index', {
-        name: body.firstName + " " + body.lastName,
-        nric: body.nric,
-        address: body.address,
-        phoneNumber: body.phoneNumber,
-        email: body.email,
-        gender: body.gender,
-        age: body.age,
-        accountKey: body.accountKey,
-        custID: body.custID
+      res.render('accountDetails', {
+        body: body
       })
     } catch (err) {
+      res.render('transaction', {
+        message: "Transfer failed!"
+      });
+    }
+  })
+});
 
+
+/* get Account Details page. */
+router.get('/accountdetails', function (req, res) {
+  // Authenticate
+  var accountKey = req.body.accountKey;
+  var custID = req.body.custID;
+
+  var options = {
+    'method': 'POST',
+    'hostname': 'ipllrj2mq8.execute-api.ap-southeast-1.amazonaws.com',
+    'path': '/techtrek/accounts',
+    'headers': {
+      'x-api-key': 'QNd2HPwfhv2bK2pNt4pfl79YaNoq7p0X7XeSPkKY',
+      'Content-Type': 'text/plain'
+    },
+    'maxRedirects': 20
+  };
+
+  var outbound = JSON.stringify({
+    "accountKey": "pdhyqysd-tmgi-rki9-g4bi-ulbaoul6a9q",
+    "custID": 13
+  })
+
+  httpRequest(options, outbound).then(function (body) {
+    try {
+      console.log("body: ");
+      console.log(body);
+      res.render('accountdetails', {
+        body: body
+      });
+    } catch (err) {
+      
     }
   })
 });
