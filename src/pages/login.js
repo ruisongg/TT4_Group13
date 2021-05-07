@@ -14,13 +14,27 @@ const Login = () => {
       method: 'POST',
       headers: { 'content-type': 'application/json',
                  'x-api-key': 'QNd2HPwfhv2bK2pNt4pfl79YaNoq7p0X7XeSPkKY' },
+<<<<<<< HEAD
       // body: `{ "userName": "${username}","userPass": "${password}" }`
       body: `{ "userName": "Group13","userPass": "XLzd8Kx20pFEU6v" }`
     }).then(respond => respond.json())
+=======
+      body: `{ "userName": "${username}","userPass": "${password}" }`
+      // body: `{ "userName": "Group13","userPass": "XLzd8Kx20pFEU6v" }`
+    }).then(response => {
+                          if (!response.ok)
+                            throw new Error(response.status);
+                          else
+                            response.json();
+                        })
+>>>>>>> origin/main
       .then(data => {
                       localStorage.setItem("user", JSON.stringify(data));
                       history.push("/balance");
-                    });
+                    })
+      .catch(status => {
+                            console.log(status)
+                        });
   }
 
   return(
