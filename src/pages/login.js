@@ -1,11 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useHistory } from 'react-router';
 
 const Login = () => {
+
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const history = useHistory();
 
   const executeLogin = (e) => {
     e.preventDefault();
 
-    console.log("executeLogin");
+    fetch("https://ipllrj2mq8.execute-api.ap-southeast-1.amazonaws.com/techtrek/login",{
+      method: 'POST',
+      headers: { 'content-type': 'application/json',
+                 'x-api-key': 'QNd2HPwfhv2bK2pNt4pfl79YaNoq7p0X7XeSPkKY' },
+      body: `{ "userName": "${username}","userPass": "${password}" }`
+      // body: `{ "userName": "Group13","userPass": "XLzd8Kx20pFEU6v" }`
+    }).then(respond => respond.json())
+      .then(data => {
+                      localStorage.setItem("user", data);
+                      history.push("/balance");
+                    });
   }
 
   return(
@@ -15,12 +30,12 @@ const Login = () => {
           <h1 className="h3 mb-3 fw-normal">Please login</h1>
 
         <div className="form-floating">
-          <input type="text" className="form-control" id="floatingInput" placeholder="user name"/>
+          <input type="text" className="form-control" id="floatingInput" placeholder="user name" onChange={e => setUsername(e.target.value)}/>
             <label for="floatingInput">User name</label>
         </div>
 
         <div className="form-floating">
-          <input type="password" className="form-control" id="floatingPassword" placeholder="Password"/>
+          <input type="password" className="form-control" id="floatingPassword" placeholder="Password" onChange={e => setPassword(e.target.value)}/>
             <label for="floatingPassword">Password</label>
         </div>
 
