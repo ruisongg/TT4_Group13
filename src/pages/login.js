@@ -21,6 +21,9 @@ const Login = () => {
                       localStorage.setItem("user", JSON.stringify(data));
                       history.push("/balance");
                     })
+      .catch(status => {
+        console.log(status)
+    });
   }
 
   return(
